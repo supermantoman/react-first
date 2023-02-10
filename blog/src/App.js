@@ -6,6 +6,7 @@ function App() {
 
   let post = "강남 우동 맛집";
   let [title, b] = useState(['제목이다 호호호', '케케케', '부부부부']);
+  let [따봉, 따봉바꾸기] = useState(0);
 
   return (
     <div className="App">
@@ -13,7 +14,7 @@ function App() {
         <div>개발 blog</div>
       </div>
       <div className="list">
-        <h4>{title[0]}</h4>
+        <h4>{title[0]} <span onClick={() => { 따봉바꾸기(따봉+1)}}>👍</span> {따봉} </h4>
         <p>{title}</p>
       </div>
       <div className="list">
