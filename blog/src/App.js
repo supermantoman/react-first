@@ -11,11 +11,11 @@ function App() {
   return (
     <div className="App">
       <div className="black-nav">
-        <div>개발 blog</div>
+        <div>블로그 이름이다~</div>
       </div>
       <div className="list">
         <h4>{title[0]} <span onClick={() => { 따봉바꾸기(따봉+1)}}>👍</span> {따봉} </h4>
-        <p>{title}</p>
+        <p>{title[2]}</p>
       </div>
       <div className="list">
         <h4>{title[1]}</h4>
@@ -25,7 +25,14 @@ function App() {
         <h4>{title[2]}</h4>
         <p>2월 17일 발행</p>
       </div>
+
+      <div className="modal">
+        <h4>제목</h4>
+        <p>날짜</p>
+        <p>상세내용</p>
+      </div>
     </div>
+
   );
 }
 
