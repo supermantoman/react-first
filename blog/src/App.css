@@ -21,9 +21,13 @@ div {
 }
 
 .modal{
+  width: 700px;
+  border-radius: 16px;  
   margin-top : 20px;
+  margin-left: 20px;
   padding : 20px;
-  background : #bbb;
+  background : #eee;
+  border: 1px solid #bbb;
   text-align : left;
 }
 
