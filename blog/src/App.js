@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import { Modal } from './components/Modal';
-import { Profile } from "./components/profile";
+import { Profile } from "./components/Profile";
 
 function App() {
 
@@ -10,6 +10,7 @@ function App() {
   let [title, b] = useState(['동해물과', '백두산이', '마르고닳도록', '가나다']);
   let [따봉, 따봉바꾸기] = useState([0,0,0,0]);
   let [modal, setModal] = useState(false);
+  let [profile, setProfile] = useState(false);
 
 
   return (
@@ -41,7 +42,7 @@ function App() {
         title.map(function (a, i){
           return (
             <div className="list" key={i}>
-              <div className="profileImage" key={i}></div>
+              <div className="profileImage" key={i} onClick={()=>{setProfile(!profile)}}></div>
               <div className='profile-content-wrap' key={i}>
                 <h4 className="h-margin" key={i}> {title[i]} <span onClick={()=>{
                   let copy = [...따봉];
@@ -57,6 +58,10 @@ function App() {
 
     {
       modal == true ? <Modal/> : null
+    }
+
+    {
+      profile == true? <Profile/> : null
     }
 
     </div>
