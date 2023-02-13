@@ -2,12 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import { Modal } from './components/Modal';
+import { Profile } from "./components/profile";
 
 function App() {
 
   let post = "강남 우동 맛집";
-  let [title, b] = useState(['동해물과', '백두산이', '마르고닳도록']);
-  let [따봉, 따봉바꾸기] = useState([0,0,0]);
+  let [title, b] = useState(['동해물과', '백두산이', '마르고닳도록', '가나다']);
+  let [따봉, 따봉바꾸기] = useState([0,0,0,0]);
   let [modal, setModal] = useState(false);
 
 
@@ -30,12 +31,25 @@ function App() {
       </div> */}
 
       {/* 반복되는 html 동시에 map함수로 원하는 갯수만큼 뿌려주기 */}
+
+      {
+
+      }
+
+
       {
         title.map(function (a, i){
           return (
             <div className="list" key={i}>
-            <h4 onClick={()=>{setModal(!modal)}}> {title[i]} </h4>
-            <p>2월 17일 발행</p>
+              <div className="profileImage" key={i}></div>
+              <div className='profile-content-wrap' key={i}>
+                <h4 className="h-margin" key={i}> {title[i]} <span onClick={()=>{
+                  let copy = [...따봉];
+                  copy[i] = copy[i] + 1;
+                  따봉바꾸기(copy)
+                }}>👍</span> {따봉[i]} </h4>
+              <p className="h-margin" key={i}>2월 17일 발행</p>
+            </div>
             </div>
           )
         })
