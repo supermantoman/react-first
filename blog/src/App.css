@@ -17,7 +17,7 @@ div {
 .list {
   text-align : left;
   padding-left : 20px;
-  border-bottom : 1px solid grey;
+  border-bottom : 1px solid #ccc;
 }
 
 .modal{

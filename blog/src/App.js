@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react'
-import { Modal } from './Modal'
+import { useState } from 'react';
+import { Modal } from './components/Modal';
 
 function App() {
 
@@ -10,10 +10,6 @@ function App() {
   let [따봉, 따봉바꾸기] = useState([0,0,0]);
   let [modal, setModal] = useState(false);
 
-  [1,2,3].map(function(a){
-    //갯수만큼반복
-    return '1231232';
-  })
 
   return (
     <div className="App">
@@ -33,23 +29,17 @@ function App() {
         <p>2월 17일 발행</p>
       </div> */}
 
+      {/* 반복되는 html 동시에 map함수로 원하는 갯수만큼 뿌려주기 */}
       {
-        title.map(function (a,i) {
-          return (<div className="list">
-          <h4>
-            {title[i]}
-            <span onClick={() => {
-              let copy = [...따봉];
-              copy[i] = copy[i] + 1;
-              따봉바꾸기(copy);
-            }}>👍</span> {따봉[i]}</h4>
-          <p>2월 17일 발행</p>
-        </div>)
-          
+        title.map(function (a, i){
+          return (
+            <div className="list" key={i}>
+            <h4 onClick={()=>{setModal(!modal)}}> {title[i]} </h4>
+            <p>2월 17일 발행</p>
+            </div>
+          )
         })
       }
-
-      {/* 모달창생성 */}
 
     {
       modal == true ? <Modal/> : null
