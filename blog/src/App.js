@@ -7,10 +7,13 @@ import { Profile } from "./components/Profile";
 function App() {
 
   let post = "강남 우동 맛집";
-  let [title, b] = useState(['동해물과', '백두산이', '마르고닳도록', '가나다']);
+  let [title, setTitle] = useState(['동해물과', '백두산이', '마르고닳도록', '가나다']);
   let [따봉, 따봉바꾸기] = useState([0,0,0,0]);
   let [modal, setModal] = useState(false);
   let [profile, setProfile] = useState(false);
+  let handleClick = () => {
+    setTitle(["여자 코트 추천", ...title.slice(1)]);
+  };
 
 
   return (
@@ -44,7 +47,7 @@ function App() {
             <div className="list" key={i}>
               <div className="profileImage" key={i} onClick={()=>{setProfile(!profile)}}></div>
               <div className='profile-content-wrap' key={i}>
-                <h4 className="h-margin" key={i}> {title[i]} <span onClick={()=>{
+                <h4 className="h-margin" key={i} onClick={()=>{setModal(!modal)}}> {title[i]} <span onClick={()=>{
                   let copy = [...따봉];
                   copy[i] = copy[i] + 1;
                   따봉바꾸기(copy)
@@ -56,10 +59,12 @@ function App() {
         })
       }
 
+    {/* 모달창 on/off */}
     {
-      modal == true ? <Modal/> : null
+      modal == true ? <Modal onClick={handleClick} title={title} color="#666"/> : null
     }
 
+    {/* 프로필 모달창 on/off */}
     {
       profile == true? <Profile/> : null
     }
