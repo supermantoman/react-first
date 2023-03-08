@@ -18,10 +18,14 @@ function App() {
   return (
     // Navbar
 
-    <Routes>
-      
-    </Routes>
     <div className="App">
+
+      <Routes>
+        <Route path="/" element={<div>메인</div>} />
+        <Route path="/detail" element={<div>디테일</div>} />
+        <Route path="/about" element={<div>어바웃</div>} />
+      </Routes>
+
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home" className="logo">NBNST</Navbar.Brand>
