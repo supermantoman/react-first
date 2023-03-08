@@ -9,6 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import data from './data.js';
 import ListItem from './components/ListItem';
+import { Routes, Route, Link } from 'react-router-dom';
 
 function App() {
 
@@ -16,6 +17,10 @@ function App() {
 
   return (
     // Navbar
+
+    <Routes>
+      
+    </Routes>
     <div className="App">
       <Navbar bg="dark" variant="dark">
         <Container>
