@@ -10,10 +10,10 @@ import Col from 'react-bootstrap/Col';
 import data from './data.js';
 import ListItem from './components/ListItem';
 import { Routes, Route, Link } from 'react-router-dom';
+import ProductDetail from './components/ProductDetail';
 
 function App() {
 
-  let [shoes] = useState(data);
 
   return (
     // Navbar
@@ -38,20 +38,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<div>메인</div>} />
-        <Route path="/detail" element={
-          <>
-        <Row>
-          {
-            shoes.map((a,index)=>{
-              return(
-                <ListItem index={index+1} 캬={shoes[index]}  />
-              )
-            })
-          }
-        </Row>
-        </>          
-
-        } />
+        <Route path="/detail" element={<ProductDetail/>} />
         <Route path="/about" element={<div>어바웃</div>} />
       </Routes>
 
