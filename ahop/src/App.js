@@ -20,11 +20,7 @@ function App() {
 
     <div className="App">
 
-      <Routes>
-        <Route path="/" element={<div>메인</div>} />
-        <Route path="/detail" element={<div>디테일</div>} />
-        <Route path="/about" element={<div>어바웃</div>} />
-      </Routes>
+
 
       <Navbar bg="dark" variant="dark">
         <Container>
@@ -38,22 +34,29 @@ function App() {
       </Navbar>
       <br />
 
+      <div className='main-bg' style={{backgroundImage: 'url(' + bg + ')' }}></div> 
 
-    <div className='main-bg' style={{backgroundImage: 'url(' + bg + ')' }}></div>
+      <Routes>
+        <Route path="/" element={<div>메인</div>} />
+        <Route path="/detail" element={
+          <>
+        <Row>
+          {
+            shoes.map((a,index)=>{
+              return(
+                <ListItem index={index+1} 캬={shoes[index]}  />
+              )
+            })
+          }
+        </Row>
+        </>          
 
-      <Row>
-        {/* <ListItem i={1} 캬={shoes[0]}/>
-        <ListItem i={2} 캬={shoes[1]}/>
-        <ListItem i={3} 캬={shoes[2]}/> */}
-        {
-          shoes.map((a,index)=>{
-            return(
-              <ListItem index={index+1} 캬={shoes[index]}  />
-            )
-          })
-        }
-      </Row>
-      
+        } />
+        <Route path="/about" element={<div>어바웃</div>} />
+      </Routes>
+
+
+     
     </div>
   );
 }
