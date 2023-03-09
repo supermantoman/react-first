@@ -18,14 +18,14 @@ import ProductDetail from './pages/ProductDetail';
 function App() {
 
   let navigate= useNavigate();
+  let [shoes] = useState(data);
 
   return (
     // Navbar
 
     <div className="App">
 
-
-
+      {/* 헤더 */}
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home" className="logo">NBNST</Navbar.Brand>
@@ -33,11 +33,11 @@ function App() {
             <Nav.Link onClick={()=>{navigate('/')}}>Home</Nav.Link>
             <Nav.Link onClick={()=>{navigate('/list')}}>List</Nav.Link>
             <Nav.Link onClick={()=>{navigate('/detail')}}>Pricing</Nav.Link>
+            <Nav.Link onClick={()=>{navigate('/event')}}>이벤트</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
       <br />
-
 
 
       <div className='main-bg' style={{backgroundImage: 'url(' + bg + ')' }}></div> 
@@ -46,7 +46,7 @@ function App() {
         <Route path="/" element={<div>메인</div>} />
         <Route path="/list" element={<ProductList/>} />
         <Route path="/about" element={<div>어바웃</div>} />
-        <Route path="/detail" element={<ProductDetail/>} />
+        <Route path="/detail/:id" element={<ProductDetail index={shoes.index} shoes={shoes} />} />
 
         <Route path="/event" element={<Event/>}>
           <Route path="one" element={<div>ONE창</div>}></Route>

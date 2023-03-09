@@ -1,6 +1,5 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import data from '../data';
 import ListItem from '../components/ListItem';
 import { useState } from 'react';
