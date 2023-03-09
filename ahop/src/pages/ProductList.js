@@ -5,7 +5,7 @@ import data from '../data';
 import ListItem from '../components/ListItem';
 import { useState } from 'react';
 
-function ProductDetail(){
+function ProductList(){
   
   let [shoes] = useState(data);
   
@@ -24,4 +24,4 @@ function ProductDetail(){
   )
 }
 
-export default ProductDetail;
+export default ProductList;
