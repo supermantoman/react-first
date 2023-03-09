@@ -17,6 +17,7 @@ import ProductDetail from './pages/ProductDetail';
 
 function App() {
 
+  let navigate= useNavigate();
 
   return (
     // Navbar
@@ -29,13 +30,10 @@ function App() {
         <Container>
           <Navbar.Brand href="#home" className="logo">NBNST</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link onClick={()=>{navigate('/')}}>Home</Nav.Link>
+            <Nav.Link onClick={()=>{navigate('/list')}}>List</Nav.Link>
+            <Nav.Link onClick={()=>{navigate('/detail')}}>Pricing</Nav.Link>
           </Nav>
-          <Link to="/">홈</Link>
-          <Link to="/list">리스트</Link>
-          <Link to="/detail">디테일</Link>
         </Container>
       </Navbar>
       <br />
@@ -48,13 +46,28 @@ function App() {
         <Route path="/" element={<div>메인</div>} />
         <Route path="/list" element={<ProductList/>} />
         <Route path="/about" element={<div>어바웃</div>} />
-        <Route path="/detail" element={<ProductDetail/>}></Route>
+        <Route path="/detail" element={<ProductDetail/>} />
+
+        <Route path="/event" element={<Event/>}>
+          <Route path="one" element={<div>ONE창</div>}></Route>
+          <Route path="two" element={<div>TWO창</div>}></Route>
+        </Route>
+
       </Routes>
 
 
      
     </div>
   );
+}
+
+function Event(){
+  return (
+    <div>
+      <div>오늘이벤트</div>
+      <Outlet></Outlet>
+    </div>
+  )
 }
 
 export default App;
