@@ -38,10 +38,15 @@ function ProductDetail(props){
   return(
     <>
     <div className="container">
-      {showModal && (<div className='alert alert-warning'>
+      {/* {showModal && (<div className='alert alert-warning'>
         2초만에 사면 10000원 할인
       </div>
-      )}
+      )} */}
+      {
+        showModal == true ? <div className='alert alert-warning'>
+        2초만에 사면 10000원 할인
+      </div> : null
+      }
       <button onClick={()=>{setCount(count+1)}}>버튼</button>
       <Box>
         <YellowBtn bg='green'>버튼</YellowBtn>
