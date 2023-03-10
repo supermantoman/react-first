@@ -15,11 +15,20 @@ let Box = styled.div`
 `
 
 function ProductDetail(props){
-  
-  useEffect(()=>{
-    console.log('gd');
-  })
 
+  const [showModal, setShowModal] = useState(true);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowModal(false)
+    }, 2000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []); 
+
+  let [count, setCount] = useState(0);
   
   let {id} = useParams();
   let 찾은상품 = props.shoes.find(function(x){
@@ -29,6 +38,11 @@ function ProductDetail(props){
   return(
     <>
     <div className="container">
+      {showModal && (<div className='alert alert-warning'>
+        2초만에 사면 10000원 할인
+      </div>
+      )}
+      <button onClick={()=>{setCount(count+1)}}>버튼</button>
       <Box>
         <YellowBtn bg='green'>버튼</YellowBtn>
       </Box>
