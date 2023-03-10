@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 let YellowBtn = styled.button`
   background : ${props => props.bg };
-  color : ${props => props.fontColor};
+  color : ${props => props.bg == 'blue'? '#999' : 'yellow'};
   padding : 10px;
   font-weight: bold;
 `
@@ -16,6 +16,11 @@ let Box = styled.div`
 
 function ProductDetail(props){
   
+  useEffect(()=>{
+    console.log('gd');
+  })
+
+  
   let {id} = useParams();
   let 찾은상품 = props.shoes.find(function(x){
     return x.id == id
@@ -25,7 +30,7 @@ function ProductDetail(props){
     <>
     <div className="container">
       <Box>
-        <YellowBtn fontColor='#fff' bg='blue'>버튼</YellowBtn>
+        <YellowBtn bg='green'>버튼</YellowBtn>
       </Box>
     <div className="row">
       <div className="col-md-6">
