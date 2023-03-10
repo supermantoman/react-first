@@ -23,7 +23,7 @@ function ProductDetail(props){
       setShowModal(false)
     }, 2000);
 
-    return () => {
+    return () => { //cleanUp 함수
       clearTimeout(timer);
     };
   }, []); 
