@@ -12,6 +12,7 @@ import ListItem from './components/ListItem';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 import ProductList from './pages/ProductList';
 import ProductDetail from './pages/ProductDetail';
+import axios from 'axios';
 
 
 

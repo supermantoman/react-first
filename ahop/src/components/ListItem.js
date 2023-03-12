@@ -1,8 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
 import Col from 'react-bootstrap/Col';
+import axios from 'axios';
+import data from '../data';
+
 
 export default function ListItem(props){
+
 
   return (      
       <Col xs>

@@ -17,7 +17,8 @@ let Box = styled.div`
 function ProductDetail(props){
 
   const [showModal, setShowModal] = useState(true);
-  
+  const [num, setNum] = useState('');
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowModal(false)
@@ -47,6 +48,19 @@ function ProductDetail(props){
         2초만에 사면 10000원 할인
       </div> : null
       }
+
+        <fieldset>
+          <legend>회원 로그인 폼</legend>
+          <input
+            type="text"
+            id="text"
+            name="search"
+            placeholder="키워드를 입력하셈"
+          />
+          
+          <button type="submit" class="login--form-button">검색</button>
+        </fieldset>
+
       <button onClick={()=>{setCount(count+1)}}>버튼</button>
       <Box>
         <YellowBtn bg='green'>버튼</YellowBtn>
